@@ -1,0 +1,4 @@
+--recurse=yes
+--append=no
+--exclude=.git
+--exclude=.svn
