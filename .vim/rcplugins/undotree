@@ -1,0 +1,7 @@
+" undo tree visualizer
+
+Plug 'https://github.com/mbbill/undotree.git'
+
+noremap <silent><F2> :UndotreeToggle<CR> " toggle UndoTree Window
+
+" vim:ft=vim

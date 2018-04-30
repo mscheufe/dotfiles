@@ -1,0 +1,5 @@
+" highlight yank region
+
+Plug 'https://github.com/machakann/vim-highlightedyank.git'
+
+" vim:ft=vim

@@ -1,0 +1,5 @@
+" linting with neomake
+
+Plug 'neomake/neomake'
+
+" vim:ft=vim

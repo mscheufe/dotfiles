@@ -1,0 +1,5 @@
+" solarized colorscheme
+
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
+
+" vim:ft=vim

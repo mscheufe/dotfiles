@@ -1,0 +1,60 @@
+
+augroup CONVENIENCE
+  autocmd!
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
+
+nnoremap <leader><leader> <c-^> " Switch between the last two files
+
+" Quick sourcing of the current file, allowing for quick vimscript testing
+nnoremap <silent><leader>so :source %<cr>
+nnoremap <silent><leader>v :sp $HOME/.vimrc<CR>
+
+nnoremap Y y$ " make behaviour of Y similar to C, D
+nnoremap <silent><leader>q :cclose<CR> " close quickfix window
+nnoremap <silent><leader>c :bd<CR> " delete current buffer
+nnoremap <silent><leader><space> :noh<CR> " clear highlight
+" scroll 3 lines up/down without moving the cursor
+nnoremap <C-k> 3k3<C-y>
+nnoremap <C-j> 3j3<C-e>
+inoremap <silent><C-s> <C-o>:up<CR> " save file in insert mode (only save in case buffer has changed)
+nnoremap <silent><C-s> :up<CR>
+nnoremap <leader>ff :FufCoverageFile<CR>
+nnoremap <leader>be :BufExplorer<CR>
+vnoremap // y/\V<C-R>"<CR> " copy visual selection and paste it into search
+
+" switch to terminal mode
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
+
+" Terminal mode:
+tnoremap <M-h> <c-\><c-n><c-w>h
+tnoremap <M-j> <c-\><c-n><c-w>j
+tnoremap <M-k> <c-\><c-n><c-w>k
+tnoremap <M-l> <c-\><c-n><c-w>l
+
+" Insert mode:
+inoremap <M-h> <Esc><c-w>h
+inoremap <M-j> <Esc><c-w>j
+inoremap <M-k> <Esc><c-w>k
+inoremap <M-l> <Esc><c-w>l
+
+" Visual mode:
+vnoremap <M-h> <Esc><c-w>h
+vnoremap <M-j> <Esc><c-w>j
+vnoremap <M-k> <Esc><c-w>k
+vnoremap <M-l> <Esc><c-w>l
+
+" Normal mode:
+nnoremap <M-h> <c-w>h
+nnoremap <M-j> <c-w>j
+nnoremap <M-k> <c-w>k
+nnoremap <M-l> <c-w>l
+
+" vim:ft=vim

@@ -1,0 +1,5 @@
+" Text objects based on indentation level
+
+Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
+
+" vim:ft=vim

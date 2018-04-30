@@ -1,0 +1,4 @@
+set background=light " colors
+colorscheme solarized
+
+" vim:ft=vim

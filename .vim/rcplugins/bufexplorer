@@ -1,0 +1,7 @@
+" buffer explorer
+
+Plug 'jlanzarotta/bufexplorer'
+
+nnoremap <leader>be :BufExplorer<CR>
+
+" vim:ft=vim

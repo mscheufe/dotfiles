@@ -1,0 +1,5 @@
+" vimwiki
+
+Plug 'https://github.com/vimwiki/vimwiki.git'
+
+" vim:ft=vim

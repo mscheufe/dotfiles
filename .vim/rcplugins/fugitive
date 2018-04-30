@@ -1,0 +1,5 @@
+" git intercation
+
+Plug 'https://github.com/tpope/vim-fugitive.git'
+
+" vim:ft=vim

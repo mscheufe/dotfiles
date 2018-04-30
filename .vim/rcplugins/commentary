@@ -1,0 +1,5 @@
+" Commentary - Comment/Uncomment text objects
+
+Plug 'https://github.com/tpope/vim-commentary.git'
+
+" vim:ft=vim

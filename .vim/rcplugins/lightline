@@ -1,0 +1,37 @@
+" lightline status bar
+
+Plug 'itchyny/lightline.vim'
+
+let g:lightline = {
+    \ 'colorscheme': 'solarized',
+	\ 'active': {
+	\	'left': [ [ 'mode', 'paste' ], [ 'readonly', 'fugitive', 'filename' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'tagbar', 'fileformat', 'fileencoding', 'filetype', 'charval' ] ],
+	\ },
+    \ 'component_function': {
+    \   'readonly': 'LightlineReadonly',
+    \   'fugitive': 'LightlineFugitive',
+    \},
+    \ 'component': {
+    \   'tagbar': '%{tagbar#currenttag("[ %s ]", "")}',
+    \   'charval': '%b|0x%B',
+    \},
+    \ 'separator': {'left': '', 'right': ''},
+    \ 'subseparator': { 'left': '', 'right': ''}
+\ }
+
+function! LightlineReadonly()
+		return &readonly ? '⭤' : ''
+endfunction
+
+function! LightlineFugitive()
+	if exists('*fugitive#head')
+		let branch = fugitive#head()
+		return branch !=# '' ? '⭠ '.branch : ''
+	endif
+	return ''
+endfunction
+
+" vim:ft=vim

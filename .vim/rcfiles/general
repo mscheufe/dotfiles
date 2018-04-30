@@ -1,0 +1,68 @@
+" neovim settings
+let g:loaded_python_provider=1 " disable python2 support
+let g:loaded_ruby_provider=1 " disable ruby support
+let g:loaded_node_provider=1 " disable node support
+let g:python3_host_prog="/Users/mscheufe/.virtualenvs/neovim/bin/python"
+
+"odds and ends
+language en_US " language
+set rnu " set relative line numbers
+set hidden " allow to open a new file while the current file has unwritten changes
+set scrolloff=1 " Minimal number of screen lines to keep above and below the cursor.
+set diffopt+=vertical " open Gdiff in a vertical split window
+set noautochdir
+
+" completion options
+set completeopt+=menuone
+set completeopt+=noinsert
+
+" tabstop configuration
+set tabstop=4 "number of spaces used for tab
+set softtabstop=4
+set shiftwidth=4 "number of spaces used for one indent level
+set smarttab " indents on beginning of line uses sw tabs, on other places indent uses ts, sts
+set expandtab " in insert mode use the appropriate number of spaces when inserting a tab
+
+"searching
+set ignorecase " case insensitive search
+set smartcase " Override the 'ignorecase' option if the search pattern contains upper case characters
+
+"splitting
+set splitbelow
+set splitright
+
+set linebreak " do not split words when wrapping lines
+set cul " highlight cursor line
+set noshowmode " do not show the current mode (is displayed within lightline)
+set listchars=tab:→\ ,trail:␣,extends:…,eol:⏎ " set chars to be displayed for whitespace char class
+set inccommand=nosplit " make substitute command interactive
+
+let g:yapf_style = "pep8" " python formatting with yapf
+
+aug GENERAL
+    au!
+    au VimLeave * set guicursor=a:ver10-blinkon1 " restore cursor size and blinking on exit
+    au FileType python setlocal equalprg=yapf " for python files run yapf when formatting with gq
+aug END
+
+aug PERL
+    au!
+    au! BufNewFile *.pl 0r ~/.vim/templates/pl.template
+    au! FileType perl set tags^=~/.tags/perl/tags
+    au! FileType perl setlocal equalprg=perltidy\ -st\ -q " for perl files run perltidy when formatting with gq
+aug END
+
+aug TERMINAL
+    au!
+    au! BufEnter * if &buftype == 'terminal' | :startinsert | endif
+    au! BufLeave * if &buftype == 'terminal' | :stopinsert | endif
+aug END
+
+hi TODO cterm=bold ctermbg=226 ctermfg=0
+augroup HI_TODO
+    au!
+    au Syntax * syn match TODO /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX|BUG)/
+          \ containedin=.*Comment,vimCommentTitle
+augroup END
+
+" vim:ft=vim

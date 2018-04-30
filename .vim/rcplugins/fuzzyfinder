@@ -1,0 +1,8 @@
+" FuzzyFinder and requirements
+
+Plug 'vim-scripts/L9'
+Plug 'vim-scripts/FuzzyFinder'
+
+nnoremap <leader>ff :FufCoverageFile<CR>
+
+" vim:ft=vim

@@ -1,0 +1,5 @@
+" display perldoc
+
+Plug 'https://github.com/mscheufe/perldoc-vim.git'
+
+" vim:ft=vim

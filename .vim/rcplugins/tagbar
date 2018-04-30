@@ -1,0 +1,7 @@
+" tagbar
+
+Plug 'majutsushi/tagbar'
+
+noremap <silent><F3> :TagbarToggle<CR> " toggle tagbar
+
+" vim:ft=vim

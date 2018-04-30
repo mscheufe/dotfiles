@@ -1,0 +1,5 @@
+" omnicompletion for vimscript
+
+Plug 'https://github.com/machakann/vim-Verdin.git'
+
+" vim:ft=vim

@@ -1,0 +1,5 @@
+" Remove trailing whitespaces
+
+Plug 'https://github.com/bronson/vim-trailing-whitespace.git'
+
+" vim:ft=vim

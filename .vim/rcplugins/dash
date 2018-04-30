@@ -1,0 +1,8 @@
+" Dash integration
+
+Plug 'rizzatti/dash.vim'
+
+" search for word under cursor in Dash
+nnoremap <silent> <leader>d <Plug>DashSearch
+
+" vim:ft=vim

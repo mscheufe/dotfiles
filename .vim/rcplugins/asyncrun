@@ -1,0 +1,19 @@
+" run async shell commands
+
+Plug 'https://github.com/skywind3000/asyncrun.vim.git'
+
+" Quick run via F8
+function! s:CompileAndRun()
+    :update
+    if &filetype == 'python'
+        execute "AsyncRun! python3 %"
+    elseif &filetype == 'perl'
+        execute "AsyncRun! perl %"
+    endif
+endfunction
+
+au! User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
+
+nnoremap <silent><F8> :call <SID>CompileAndRun()<CR>
+
+" vim:ft=vim
