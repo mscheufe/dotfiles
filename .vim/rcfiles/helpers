@@ -2,20 +2,20 @@
 
 " Show syntax highlighting groups for word under cursor
 function! s:SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 
 " easily navigate errors in neomake
 function! s:LocationNext()
-  try
-    lnext
-  catch
-    try | lfirst | catch | endtry
-  endtry
+    try
+        lnext
+    catch
+        try | lfirst | catch | endtry
+    endtry
 endfunction
 nnoremap <leader>E :call <SID>LocationNext()<cr>
 nnoremap <silent><leader>e :lclose<CR> " close error window
@@ -36,5 +36,13 @@ endfunction
 
 nnoremap <leader>g :set operatorfunc=<SID>GrepOperator<cr>g@
 vnoremap <leader>g :<c-u>call <SID>GrepOperator(visualmode())<cr>
+
+function! ShowRcFiles()
+    enew
+    :1r !ls $HOME/.vim/{rcfiles,rcplugins}/*
+    :normal ggdd
+    set norelativenumber
+    set nomodified
+endfunction
 
 " vim:ft=vim

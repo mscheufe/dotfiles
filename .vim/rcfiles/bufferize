@@ -12,7 +12,7 @@ function! s:Bufferize(...)
     redir END
 
     new
-    setlocal nonumber
+    setlocal norelativenumber
     call append(0, split(output, "\n"))
     set nomodified
 endfunction
